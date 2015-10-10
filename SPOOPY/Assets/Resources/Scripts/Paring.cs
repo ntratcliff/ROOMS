@@ -6,7 +6,7 @@ public class Paring : MonoBehaviour
 {
     public List<GameObject> StrongPairs; //first round pairings
     public List<GameObject> WeakPairs; //second round pairings
-
+    public List<GameObject> CurrentPairs; //pairs made by program
     private GameObject room;
     // Use this for initialization
     void Start()
