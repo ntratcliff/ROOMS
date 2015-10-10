@@ -1,25 +1,79 @@
 fileFormatVersion: 2
-guid: e8459b321d8406c4b8a1368302172ec4
-timeCreated: 1444503533
+guid: 3d894db70ad83ab498c6ae47e1dff2d4
+timeCreated: 1444507909
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Cube.004
-    100002: //RootNode
-    100004: Plane
-    400000: Cube.004
-    400002: //RootNode
-    400004: Plane
-    2300000: Cube.004
-    2300002: Plane
-    2300004: //RootNode
-    3300000: Cube.004
-    3300002: Plane
-    3300004: //RootNode
-    4300000: Cube.004
-    4300002: Plane
-    4300004: Desk
+    100000: //RootNode
+    100002: BedBeam
+    100004: BedBeam2
+    100006: Bedfram
+    100008: Bedframe2
+    100010: Bedplatform
+    100012: Ceiling
+    100014: Desk
+    100016: Door_frame
+    100018: Floor
+    100020: Wall
+    100022: Wall2
+    100024: Window_Wall
+    100026: Desk-Table
+    400000: //RootNode
+    400002: BedBeam
+    400004: BedBeam2
+    400006: Bedfram
+    400008: Bedframe2
+    400010: Bedplatform
+    400012: Ceiling
+    400014: Desk
+    400016: Door_frame
+    400018: Floor
+    400020: Wall
+    400022: Wall2
+    400024: Window_Wall
+    400026: Desk-Table
+    2300000: BedBeam
+    2300002: BedBeam2
+    2300004: Bedfram
+    2300006: Bedframe2
+    2300008: Bedplatform
+    2300010: Ceiling
+    2300012: Desk
+    2300014: Door_frame
+    2300016: Floor
+    2300018: Wall
+    2300020: Wall2
+    2300022: Window_Wall
+    2300024: Desk-Table
+    3300000: BedBeam
+    3300002: BedBeam2
+    3300004: Bedfram
+    3300006: Bedframe2
+    3300008: Bedplatform
+    3300010: Ceiling
+    3300012: Desk
+    3300014: Door_frame
+    3300016: Floor
+    3300018: Wall
+    3300020: Wall2
+    3300022: Window_Wall
+    3300024: Desk-Table
+    4300000: Bedplatform
+    4300002: Bedfram
+    4300004: BedBeam2
+    4300006: BedBeam
+    4300008: Bedframe2
+    4300010: Wall2
+    4300012: Door_frame
+    4300014: Window_Wall
+    4300016: Ceiling
+    4300018: Wall
+    4300020: Floor
+    4300022: Desk
+    4300024: Desk-Table
+    7400000: Default Take
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -77,7 +131,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

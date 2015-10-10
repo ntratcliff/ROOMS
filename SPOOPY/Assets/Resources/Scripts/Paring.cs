@@ -22,6 +22,11 @@ public class Paring : MonoBehaviour
 
     }
 
+    //public int GetStrength(GameObject other)
+    //{
+        
+    //}
+
     public List<GameObject> GetStrongPairsInScene()
     {
         GameObject[] roomObjects = GameObject.FindGameObjectsWithTag("RoomObject");
@@ -45,7 +50,7 @@ public class Paring : MonoBehaviour
 
     private List<GameObject> getPairs(List<GameObject> baseList, GameObject[] roomObjects)
     {
-        List<GameObject> pairs = new List<GameObject>();        
+        List<GameObject> pairs = new List<GameObject>();
         foreach (GameObject obj in roomObjects)
         {
             if (obj != this.gameObject
