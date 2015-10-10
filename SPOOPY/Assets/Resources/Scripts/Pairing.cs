@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Paring : MonoBehaviour
+public class Pairing : MonoBehaviour
 {
+    public bool StrongObject; //check parings first
     public List<GameObject> StrongPairs; //first round pairings
     public List<GameObject> WeakPairs; //second round pairings
     public List<GameObject> CurrentPairs; //pairs made by program
@@ -14,6 +15,7 @@ public class Paring : MonoBehaviour
         GameObject room = GameObject.FindGameObjectWithTag("Room");
         if (!room)
             Debug.LogWarning(this.name + " - Failed to locate Room!");
+
     }
 
     // Update is called once per frame

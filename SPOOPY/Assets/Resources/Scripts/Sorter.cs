@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class Sorter : MonoBehaviour
 {
-    GameObject[] roomObjects;
+    List<GameObject> roomObjects;
     // Use this for initialization
     void Start()
     {
@@ -14,5 +16,20 @@ public class Sorter : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void DoPairing()
+    {
+        roomObjects = GameObject.FindGameObjectsWithTag("RoomObject").ToList();
+
+        List<GameObject> strongObjects = (List<GameObject>)(
+            from obj in roomObjects 
+            where obj.GetComponent<Pairing>().StrongObject.Equals(true) 
+            select obj);
+
+        List<GameObject> weakObjects = (List<GameObject>)(
+            from obj in roomObjects
+            where obj.GetComponent<Pairing>().StrongObject.Equals(false)
+            select obj);
     }
 }
