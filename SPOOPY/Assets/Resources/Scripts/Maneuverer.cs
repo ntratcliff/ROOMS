@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Manuverer : MonoBehaviour
+public class Maneuverer : MonoBehaviour
 {
     public Material SelectedMaterial;
     public Material LastMaterial;
