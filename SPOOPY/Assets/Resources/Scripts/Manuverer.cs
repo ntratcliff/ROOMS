@@ -7,40 +7,61 @@ public class Manuverer : MonoBehaviour
     public Color LastColor;
     public GameObject SelectedObject;
 
+    private bool lastMouseDown;
+    private Vector3 lastMousePos;
+
+    private Vector3 screenPoint;
+    private Vector3 offset;
     // Use this for initialization
     void Start()
     {
-
+        lastMouseDown = Input.GetMouseButton(0);
+        lastMousePos = Input.mousePosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)
-            && !SelectedObject) //possible click on new object
+        if (Input.GetMouseButtonDown(0)) 
         {
             GameObject frameSelectedObj = getRoomObjectAtMouse();
-            Debug.Log("Selected Object = " + frameSelectedObj.name);
             if (frameSelectedObj)
-                select(frameSelectedObj);
-        }
-        if (Input.GetMouseButtonDown(0)
-            && SelectedObject)
-        {
-            GameObject frameSelectedObj = getRoomObjectAtMouse();
-            if(frameSelectedObj)
                 Debug.Log("Selected Object = " + frameSelectedObj.name);
-
-            if (frameSelectedObj
-                && SelectedObject != frameSelectedObj)
+            if (!SelectedObject) //possible click on new object
             {
-                deselect(SelectedObject);
-                select(frameSelectedObj);
+                Debug.Log("Selected Object = " + frameSelectedObj.name);
+                if (frameSelectedObj)
+                    select(frameSelectedObj);
             }
-            else if (!frameSelectedObj
-                && SelectedObject)
+            else
             {
-                deselect(SelectedObject);
+                if (frameSelectedObj
+                    && SelectedObject != frameSelectedObj) //clicked on a new object
+                {
+                    deselect(SelectedObject);
+                    select(frameSelectedObj);
+                }
+                else if (!frameSelectedObj
+                    && SelectedObject) //clicked on nothing
+                {
+                    deselect(SelectedObject);
+                }
+                else //clicked on object
+                {
+                    //if (lastMousePos != Input.mousePosition)
+                    //{
+                        //Vector3 offset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - Camera.main.ScreenToWorldPoint(lastMousePos);
+                        //offset = Camera.main.ScreenToWorldPoint(offset);
+                        //SelectedObject.transform.position = SelectedObject.transform.position + offset;
+                        
+                    //}
+                }
+            }
+
+            if (SelectedObject)
+            {
+                screenPoint = Camera.main.WorldToScreenPoint(SelectedObject.transform.position);
+                offset = SelectedObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
             }
         }
         if (Input.GetMouseButtonUp(0)
@@ -48,6 +69,17 @@ public class Manuverer : MonoBehaviour
         {
             //deselect(SelectedObject);
         }
+
+        if (Input.GetMouseButton(0)
+            && SelectedObject) //dragging object
+        {
+            Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
+            SelectedObject.transform.position = cursorPosition;
+        }
+
+        lastMouseDown = Input.GetMouseButton(0);
+        lastMousePos = Input.mousePosition;
     }
 
     private GameObject getRoomObjectAtMouse()
