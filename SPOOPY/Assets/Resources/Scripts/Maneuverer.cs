@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+//using UnityEditor;
 
 public class Maneuverer : MonoBehaviour
 {
     public Material SelectedMaterial;
-    public Material LastMaterial;
+    //public Material LastMaterial;
     public float ScrollSpeed;
     public float RotateSpeed;
     public float RotateSnapThreshold;
@@ -32,22 +33,21 @@ public class Maneuverer : MonoBehaviour
                 Debug.Log("Selected Object = " + frameSelectedObj.name);
             if (!SelectedObject) //possible click on new object
             {
-                Debug.Log("Selected Object = " + frameSelectedObj.name);
                 if (frameSelectedObj)
-                    select(frameSelectedObj);
+                    Select(frameSelectedObj);
             }
             else
             {
                 if (frameSelectedObj
                     && SelectedObject != frameSelectedObj) //clicked on a new object
                 {
-                    deselect(SelectedObject);
-                    select(frameSelectedObj);
+                    Deselect(SelectedObject);
+                    Select(frameSelectedObj);
                 }
                 else if (!frameSelectedObj
                     && SelectedObject) //clicked on nothing
                 {
-                    deselect(SelectedObject);
+                    Deselect(SelectedObject);
                 }
             }
 
@@ -77,17 +77,17 @@ public class Maneuverer : MonoBehaviour
                 SelectedObject.transform.position = cursorPosition;
             }
 
-            if (Input.GetMouseButton(1)) //rotating object
+            if (Input.GetMouseButton(2)) //rotating object
             {
-                if (!Input.GetKey(KeyCode.LeftShift))
-                    SelectedObject.transform.Rotate(0, -Input.GetAxis("Mouse X") * RotateSpeed, 0);
+                if (!Input.GetKey(KeyCode.LeftControl))
+                    SelectedObject.transform.Rotate(0, Input.GetAxis("Mouse X") * RotateSpeed, 0);
                 else if (Mathf.Abs(rot) > RotateSnapThreshold)
                 {
                     SelectedObject.transform.Rotate(0, RotateSnapDegrees * Mathf.Sign(rot), 0);
                     rot = 0;
                 }
 
-                rot += -Input.GetAxis("Mouse X");
+                rot += Input.GetAxis("Mouse X");
             }
             else
             {
@@ -96,12 +96,32 @@ public class Maneuverer : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.R)) //reset rotation
             {
-                SelectedObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                //SelectedObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                DefaultsManager defaultsMan = SelectedObject.GetComponent<DefaultsManager>();
+                if (defaultsMan)
+                {
+                    defaultsMan.SetDefaultRotation();
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Delete))
+            {
+                GameObject obj = SelectedObject;
+                Deselect(SelectedObject);
+                Destroy(obj);
+            }
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                GameObject sel = SelectedObject;
+                Deselect(SelectedObject);
+                GameObject obj = Instantiate(sel);
+                obj.transform.position += obj.transform.forward;
+                obj.transform.position += obj.transform.up;
+                obj.GetComponent<DefaultsManager>().Initialize();
+                Select(obj);
             }
         }
-
-
-
 
         lastMousePos = Input.mousePosition;
     }
@@ -129,27 +149,28 @@ public class Maneuverer : MonoBehaviour
         return null;
     }
 
-    private void deselect(GameObject obj)
+    public void Deselect(GameObject obj)
     {
-        MeshRenderer[] renderers = SelectedObject.GetComponentsInChildren<MeshRenderer>();
-        foreach (MeshRenderer r in renderers)
+        //MeshRenderer[] renderers = SelectedObject.GetComponentsInChildren<MeshRenderer>();
+        //foreach (MeshRenderer r in renderers)
+        //{
+        //    r.material = LastMaterial;
+        //}
+        DefaultsManager defaultsMan = SelectedObject.GetComponent<DefaultsManager>();
+        if (defaultsMan)
         {
-            r.material = LastMaterial;
+            defaultsMan.SetDefaultMaterial();
         }
+
         SelectedObject.GetComponent<Rigidbody>().isKinematic = false;
         SelectedObject.GetComponent<Rigidbody>().detectCollisions = true;
         SelectedObject = null;
     }
 
-    private void select(GameObject obj)
+    public void Select(GameObject obj)
     {
         SelectedObject = obj;
-        MeshRenderer[] renderers = SelectedObject.GetComponentsInChildren<MeshRenderer>();
-        foreach (MeshRenderer r in renderers)
-        {
-            LastMaterial = r.material;
-            r.material = SelectedMaterial;
-        }
+        SelectedObject.GetComponent<DefaultsManager>().SetMaterial(SelectedMaterial);
         SelectedObject.GetComponent<Rigidbody>().isKinematic = true;
         SelectedObject.GetComponent<Rigidbody>().detectCollisions = false;
     }

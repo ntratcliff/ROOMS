@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: 6cfdd249dfa13384bb917c23815d9c40
+timeCreated: 1444541449
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: 12086922_1000352883350465_367315660_n
+    100002: bed-platform
+    100004: bed-platform.001
+    100006: bedbeam
+    100008: bedbeam.001
+    100010: bedbeam2
+    100012: bedbeam2.001
+    100014: bedbeam2.002
+    100016: Camera
+    100018: Ceiling
+    100020: Chair
+    100022: Chair.001
+    100024: Cube
+    100026: Cube.001
+    100028: Cube.002
+    100030: Cube.003
+    100032: Desk
+    100034: Desk-Table
+    100036: Desk-Table.001
+    100038: Desk.001
+    100040: fall-protector.000
+    100042: Floor
+    100044: headboard
+    100046: headboard.001
+    100048: headboard.002
+    100050: headboard.003
+    100052: headboard.004
+    100054: headboard.005
+    100056: Lightcover
+    100058: Lightcover.001
+    100060: MInifridge
+    100062: MInifridge.001
+    100064: //RootNode
+    100066: shelfl
+    100068: shelfr
+    100070: Sun
+    100072: Tall Dresser
+    100074: Tall Dresser.001
+    100076: Wall
+    100078: Wall2
+    100080: Window Wall
+    400000: 12086922_1000352883350465_367315660_n
+    400002: bed-platform
+    400004: bed-platform.001
+    400006: bedbeam
+    400008: bedbeam.001
+    400010: bedbeam2
+    400012: bedbeam2.001
+    400014: bedbeam2.002
+    400016: Camera
+    400018: Ceiling
+    400020: Chair
+    400022: Chair.001
+    400024: Cube
+    400026: Cube.001
+    400028: Cube.002
+    400030: Cube.003
+    400032: Desk
+    400034: Desk-Table
+    400036: Desk-Table.001
+    400038: Desk.001
+    400040: fall-protector.000
+    400042: Floor
+    400044: headboard
+    400046: headboard.001
+    400048: headboard.002
+    400050: headboard.003
+    400052: headboard.004
+    400054: headboard.005
+    400056: Lightcover
+    400058: Lightcover.001
+    400060: MInifridge
+    400062: MInifridge.001
+    400064: //RootNode
+    400066: shelfl
+    400068: shelfr
+    400070: Sun
+    400072: Tall Dresser
+    400074: Tall Dresser.001
+    400076: Wall
+    400078: Wall2
+    400080: Window Wall
+    2300000: 12086922_1000352883350465_367315660_n
+    2300002: bed-platform
+    2300004: bed-platform.001
+    2300006: bedbeam
+    2300008: bedbeam.001
+    2300010: bedbeam2
+    2300012: bedbeam2.001
+    2300014: bedbeam2.002
+    2300016: Ceiling
+    2300018: Chair
+    2300020: Chair.001
+    2300022: Cube
+    2300024: Cube.001
+    2300026: Cube.002
+    2300028: Cube.003
+    2300030: Desk
+    2300032: Desk-Table
+    2300034: Desk-Table.001
+    2300036: Desk.001
+    2300038: fall-protector.000
+    2300040: Floor
+    2300042: headboard
+    2300044: headboard.001
+    2300046: headboard.002
+    2300048: headboard.003
+    2300050: headboard.004
+    2300052: headboard.005
+    2300054: Lightcover
+    2300056: Lightcover.001
+    2300058: MInifridge
+    2300060: MInifridge.001
+    2300062: shelfl
+    2300064: shelfr
+    2300066: Tall Dresser
+    2300068: Tall Dresser.001
+    2300070: Wall
+    2300072: Wall2
+    2300074: Window Wall
+    3300000: 12086922_1000352883350465_367315660_n
+    3300002: bed-platform
+    3300004: bed-platform.001
+    3300006: bedbeam
+    3300008: bedbeam.001
+    3300010: bedbeam2
+    3300012: bedbeam2.001
+    3300014: bedbeam2.002
+    3300016: Ceiling
+    3300018: Chair
+    3300020: Chair.001
+    3300022: Cube
+    3300024: Cube.001
+    3300026: Cube.002
+    3300028: Cube.003
+    3300030: Desk
+    3300032: Desk-Table
+    3300034: Desk-Table.001
+    3300036: Desk.001
+    3300038: fall-protector.000
+    3300040: Floor
+    3300042: headboard
+    3300044: headboard.001
+    3300046: headboard.002
+    3300048: headboard.003
+    3300050: headboard.004
+    3300052: headboard.005
+    3300054: Lightcover
+    3300056: Lightcover.001
+    3300058: MInifridge
+    3300060: MInifridge.001
+    3300062: shelfl
+    3300064: shelfr
+    3300066: Tall Dresser
+    3300068: Tall Dresser.001
+    3300070: Wall
+    3300072: Wall2
+    3300074: Window Wall
+    4300000: Cube.003
+    4300002: Cube.002
+    4300004: Chair.001
+    4300006: Desk-Table.001
+    4300008: Desk.001
+    4300010: bedbeam2.002
+    4300012: headboard.005
+    4300014: headboard.004
+    4300016: headboard.003
+    4300018: headboard.002
+    4300020: bedbeam.001
+    4300022: bedbeam2.001
+    4300024: bed-platform.001
+    4300026: fall-protector.000
+    4300028: Lightcover.001
+    4300030: Cube.001
+    4300032: 12086922_1000352883350465_367315660_n
+    4300034: bed-platform
+    4300036: bedbeam2
+    4300038: bedbeam
+    4300040: headboard.001
+    4300042: headboard
+    4300044: MInifridge.001
+    4300046: Tall Dresser.001
+    4300048: Cube
+    4300050: Lightcover
+    4300052: MInifridge
+    4300054: shelfr
+    4300056: shelfl
+    4300058: Chair
+    4300060: Tall Dresser
+    4300062: Desk-Table
+    4300064: Wall2
+    4300066: Window Wall
+    4300068: Ceiling
+    4300070: Wall
+    4300072: Floor
+    4300074: Desk
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 3
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
