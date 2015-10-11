@@ -5,18 +5,14 @@ public class Manuverer : MonoBehaviour
 {
     public Color SelectedColor = Color.yellow;
     public Color LastColor;
+    public float ScrollSpeed;
     public GameObject SelectedObject;
-
-    private bool lastMouseDown;
-    private Vector3 lastMousePos;
 
     private Vector3 screenPoint;
     private Vector3 offset;
     // Use this for initialization
     void Start()
     {
-        lastMouseDown = Input.GetMouseButton(0);
-        lastMousePos = Input.mousePosition;
     }
 
     // Update is called once per frame
@@ -46,16 +42,6 @@ public class Manuverer : MonoBehaviour
                 {
                     deselect(SelectedObject);
                 }
-                else //clicked on object
-                {
-                    //if (lastMousePos != Input.mousePosition)
-                    //{
-                        //Vector3 offset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - Camera.main.ScreenToWorldPoint(lastMousePos);
-                        //offset = Camera.main.ScreenToWorldPoint(offset);
-                        //SelectedObject.transform.position = SelectedObject.transform.position + offset;
-                        
-                    //}
-                }
             }
 
             if (SelectedObject)
@@ -64,10 +50,15 @@ public class Manuverer : MonoBehaviour
                 offset = SelectedObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
             }
         }
-        if (Input.GetMouseButtonUp(0)
+
+        //Scroll Wheel Push/Pull
+        if (Input.GetAxis("Mouse ScrollWheel") != 0f
             && SelectedObject)
         {
-            //deselect(SelectedObject);
+            SelectedObject.transform.position = SelectedObject.transform.position + Camera.main.transform.forward * Input.GetAxis("Mouse ScrollWheel") * ScrollSpeed;
+
+            screenPoint = Camera.main.WorldToScreenPoint(SelectedObject.transform.position);
+            offset = SelectedObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         }
 
         if (Input.GetMouseButton(0)
@@ -77,9 +68,7 @@ public class Manuverer : MonoBehaviour
             Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
             SelectedObject.transform.position = cursorPosition;
         }
-
-        lastMouseDown = Input.GetMouseButton(0);
-        lastMousePos = Input.mousePosition;
+        
     }
 
     private GameObject getRoomObjectAtMouse()
@@ -112,7 +101,7 @@ public class Manuverer : MonoBehaviour
         {
             r.material.color = LastColor;
         }
-
+        SelectedObject.GetComponent<Rigidbody>().isKinematic = false;
         SelectedObject = null;
     }
 
@@ -125,6 +114,8 @@ public class Manuverer : MonoBehaviour
             LastColor = r.material.color;
             r.material.color = SelectedColor;
         }
+        SelectedObject.GetComponent<Rigidbody>().isKinematic = true;
+
     }
 
     public static GameObject FindParentWithTag(GameObject childObject, string tag)
