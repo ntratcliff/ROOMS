@@ -65,7 +65,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Resources\Scripts\Manuverer.cs" />
+    <Compile Include="Assets\Resources\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Resources\Scripts\Maneuverer.cs" />
     <Compile Include="Assets\Resources\Scripts\Pairing.cs" />
     <Compile Include="Assets\Resources\Scripts\RaycastExample.cs" />
     <Compile Include="Assets\Resources\Scripts\Sorter.cs" />
