@@ -3,22 +3,29 @@ using System.Collections;
 
 public class Manuverer : MonoBehaviour
 {
-    public Color SelectedColor = Color.yellow;
-    public Color LastColor;
+    public Material SelectedMaterial;
+    public Material LastMaterial;
     public float ScrollSpeed;
+    public float RotateSpeed;
+    public float RotateSnapThreshold;
+    public float RotateSnapDegrees;
     public GameObject SelectedObject;
 
     private Vector3 screenPoint;
     private Vector3 offset;
+
+    private Vector3 lastMousePos;
+    private float rot;
     // Use this for initialization
     void Start()
     {
+        lastMousePos = Input.mousePosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
             GameObject frameSelectedObj = getRoomObjectAtMouse();
             if (frameSelectedObj)
@@ -61,14 +68,42 @@ public class Manuverer : MonoBehaviour
             offset = SelectedObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         }
 
-        if (Input.GetMouseButton(0)
-            && SelectedObject) //dragging object
+        if (SelectedObject)
         {
-            Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-            SelectedObject.transform.position = cursorPosition;
+            if (Input.GetMouseButton(0)) //dragging object
+            {
+                Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+                Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
+                SelectedObject.transform.position = cursorPosition;
+            }
+
+            if (Input.GetMouseButton(1)) //rotating object
+            {
+                if (!Input.GetKey(KeyCode.LeftShift))
+                    SelectedObject.transform.Rotate(0, -Input.GetAxis("Mouse X") * RotateSpeed, 0);
+                else if (Mathf.Abs(rot) > RotateSnapThreshold)
+                {
+                    SelectedObject.transform.Rotate(0, RotateSnapDegrees * Mathf.Sign(rot), 0);
+                    rot = 0;
+                }
+
+                rot += -Input.GetAxis("Mouse X");
+            }
+            else
+            {
+                rot = 0;
+            }
+
+            if (Input.GetKeyDown(KeyCode.R)) //reset rotation
+            {
+                SelectedObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
-        
+
+
+
+
+        lastMousePos = Input.mousePosition;
     }
 
     private GameObject getRoomObjectAtMouse()
@@ -99,9 +134,10 @@ public class Manuverer : MonoBehaviour
         MeshRenderer[] renderers = SelectedObject.GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer r in renderers)
         {
-            r.material.color = LastColor;
+            r.material = LastMaterial;
         }
         SelectedObject.GetComponent<Rigidbody>().isKinematic = false;
+        SelectedObject.GetComponent<Rigidbody>().detectCollisions = true;
         SelectedObject = null;
     }
 
@@ -111,11 +147,11 @@ public class Manuverer : MonoBehaviour
         MeshRenderer[] renderers = SelectedObject.GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer r in renderers)
         {
-            LastColor = r.material.color;
-            r.material.color = SelectedColor;
+            LastMaterial = r.material;
+            r.material = SelectedMaterial;
         }
         SelectedObject.GetComponent<Rigidbody>().isKinematic = true;
-
+        SelectedObject.GetComponent<Rigidbody>().detectCollisions = false;
     }
 
     public static GameObject FindParentWithTag(GameObject childObject, string tag)
