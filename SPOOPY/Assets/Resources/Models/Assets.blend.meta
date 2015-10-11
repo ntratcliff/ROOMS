@@ -19,6 +19,38 @@ ModelImporter:
     100022: Wall2
     100024: Window_Wall
     100026: Desk-Table
+    100028: 12086922_1000352883350465_367315660_n
+    100030: bed-platform
+    100032: bed-platform_001
+    100034: bedbeam
+    100036: bedbeam2
+    100038: bedbeam2_001
+    100040: bedbeam2_002
+    100042: bedbeam_001
+    100044: Chair
+    100046: Chair_001
+    100048: Cube
+    100050: Cube_001
+    100052: Cube_002
+    100054: Cube_003
+    100056: Desk-Table_001
+    100058: Desk_001
+    100060: Empty
+    100062: fall-protector_000
+    100064: headboard
+    100066: headboard_001
+    100068: headboard_002
+    100070: headboard_003
+    100072: headboard_004
+    100074: headboard_005
+    100076: Lightcover
+    100078: Lightcover_001
+    100080: MInifridge
+    100082: MInifridge_001
+    100084: shelfl
+    100086: shelfr
+    100088: Tall_Dresser
+    100090: Tall_Dresser_001
     400000: //RootNode
     400002: BedBeam
     400004: BedBeam2
@@ -33,6 +65,38 @@ ModelImporter:
     400022: Wall2
     400024: Window_Wall
     400026: Desk-Table
+    400028: 12086922_1000352883350465_367315660_n
+    400030: bed-platform
+    400032: bed-platform_001
+    400034: bedbeam
+    400036: bedbeam2
+    400038: bedbeam2_001
+    400040: bedbeam2_002
+    400042: bedbeam_001
+    400044: Chair
+    400046: Chair_001
+    400048: Cube
+    400050: Cube_001
+    400052: Cube_002
+    400054: Cube_003
+    400056: Desk-Table_001
+    400058: Desk_001
+    400060: Empty
+    400062: fall-protector_000
+    400064: headboard
+    400066: headboard_001
+    400068: headboard_002
+    400070: headboard_003
+    400072: headboard_004
+    400074: headboard_005
+    400076: Lightcover
+    400078: Lightcover_001
+    400080: MInifridge
+    400082: MInifridge_001
+    400084: shelfl
+    400086: shelfr
+    400088: Tall_Dresser
+    400090: Tall_Dresser_001
     2300000: BedBeam
     2300002: BedBeam2
     2300004: Bedfram
@@ -46,6 +110,37 @@ ModelImporter:
     2300020: Wall2
     2300022: Window_Wall
     2300024: Desk-Table
+    2300026: 12086922_1000352883350465_367315660_n
+    2300028: bed-platform
+    2300030: bed-platform_001
+    2300032: bedbeam
+    2300034: bedbeam2
+    2300036: bedbeam2_001
+    2300038: bedbeam2_002
+    2300040: bedbeam_001
+    2300042: Chair
+    2300044: Chair_001
+    2300046: Cube
+    2300048: Cube_001
+    2300050: Cube_002
+    2300052: Cube_003
+    2300054: Desk-Table_001
+    2300056: Desk_001
+    2300058: fall-protector_000
+    2300060: headboard
+    2300062: headboard_001
+    2300064: headboard_002
+    2300066: headboard_003
+    2300068: headboard_004
+    2300070: headboard_005
+    2300072: Lightcover
+    2300074: Lightcover_001
+    2300076: MInifridge
+    2300078: MInifridge_001
+    2300080: shelfl
+    2300082: shelfr
+    2300084: Tall_Dresser
+    2300086: Tall_Dresser_001
     3300000: BedBeam
     3300002: BedBeam2
     3300004: Bedfram
@@ -59,6 +154,37 @@ ModelImporter:
     3300020: Wall2
     3300022: Window_Wall
     3300024: Desk-Table
+    3300026: 12086922_1000352883350465_367315660_n
+    3300028: bed-platform
+    3300030: bed-platform_001
+    3300032: bedbeam
+    3300034: bedbeam2
+    3300036: bedbeam2_001
+    3300038: bedbeam2_002
+    3300040: bedbeam_001
+    3300042: Chair
+    3300044: Chair_001
+    3300046: Cube
+    3300048: Cube_001
+    3300050: Cube_002
+    3300052: Cube_003
+    3300054: Desk-Table_001
+    3300056: Desk_001
+    3300058: fall-protector_000
+    3300060: headboard
+    3300062: headboard_001
+    3300064: headboard_002
+    3300066: headboard_003
+    3300068: headboard_004
+    3300070: headboard_005
+    3300072: Lightcover
+    3300074: Lightcover_001
+    3300076: MInifridge
+    3300078: MInifridge_001
+    3300080: shelfl
+    3300082: shelfr
+    3300084: Tall_Dresser
+    3300086: Tall_Dresser_001
     4300000: Bedplatform
     4300002: Bedfram
     4300004: BedBeam2
@@ -72,6 +198,37 @@ ModelImporter:
     4300020: Floor
     4300022: Desk
     4300024: Desk-Table
+    4300026: Cube_003
+    4300028: Cube_002
+    4300030: Chair_001
+    4300032: Desk-Table_001
+    4300034: Desk_001
+    4300036: bedbeam2_002
+    4300038: headboard_005
+    4300040: headboard_004
+    4300042: headboard_003
+    4300044: headboard_002
+    4300046: bedbeam_001
+    4300048: bedbeam2_001
+    4300050: bed-platform_001
+    4300052: fall-protector_000
+    4300054: Lightcover_001
+    4300056: Cube_001
+    4300058: 12086922_1000352883350465_367315660_n
+    4300060: bed-platform
+    4300062: bedbeam2
+    4300064: bedbeam
+    4300066: headboard_001
+    4300068: headboard
+    4300070: MInifridge_001
+    4300072: Tall_Dresser_001
+    4300074: Cube
+    4300076: Lightcover
+    4300078: MInifridge
+    4300080: shelfr
+    4300082: shelfl
+    4300084: Chair
+    4300086: Tall_Dresser
     7400000: Default Take
     9500000: //RootNode
   materials:
