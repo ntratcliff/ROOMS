@@ -16,47 +16,82 @@ public class Manuverer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)
+            && !SelectedObject) //possible click on new object
         {
-            Debug.Log("Mouse click at " + Camera.main.ScreenPointToRay(Input.mousePosition));
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            GameObject frameSelectedObj = getRoomObjectAtMouse();
+            Debug.Log("Selected Object = " + frameSelectedObj.name);
+            if (frameSelectedObj)
+                select(frameSelectedObj);
+        }
+        if (Input.GetMouseButtonDown(0)
+            && SelectedObject)
+        {
+            GameObject frameSelectedObj = getRoomObjectAtMouse();
+            if(frameSelectedObj)
+                Debug.Log("Selected Object = " + frameSelectedObj.name);
+
+            if (frameSelectedObj
+                && SelectedObject != frameSelectedObj)
             {
-                Debug.Log("Name = " + hit.collider.name);
-                Debug.Log("Tag = " + hit.collider.tag);
-                Debug.Log("Hit Point = " + hit.point);
-                Debug.Log("Object position = " + hit.collider.gameObject.transform.position);
-
-                if (hit.transform.CompareTag("RoomObject"))
-                {
-                    SelectedObject = hit.transform.gameObject;
-                }
-                else
-                {
-                    SelectedObject = FindParentWithTag(hit.transform.gameObject, "RoomObject");
-                }
-
-                Debug.Log("Selected Object = " + SelectedObject.name);
-
-                MeshRenderer[] renderers = SelectedObject.GetComponentsInChildren<MeshRenderer>();
-                foreach (MeshRenderer r in renderers)
-                {
-                    LastColor = r.material.color;
-                    r.material.color = SelectedColor;
-                }
+                deselect(SelectedObject);
+                select(frameSelectedObj);
+            }
+            else if (!frameSelectedObj
+                && SelectedObject)
+            {
+                deselect(SelectedObject);
             }
         }
         if (Input.GetMouseButtonUp(0)
             && SelectedObject)
         {
-            MeshRenderer[] renderers = SelectedObject.GetComponentsInChildren<MeshRenderer>();
-            foreach (MeshRenderer r in renderers)
+            //deselect(SelectedObject);
+        }
+    }
+
+    private GameObject getRoomObjectAtMouse()
+    {
+        Debug.Log("Mouse click at " + Camera.main.ScreenPointToRay(Input.mousePosition));
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.Log("Name = " + hit.collider.name);
+            Debug.Log("Tag = " + hit.collider.tag);
+            Debug.Log("Hit Point = " + hit.point);
+            Debug.Log("Object position = " + hit.collider.gameObject.transform.position);
+
+            if (!hit.transform.CompareTag("RoomObject"))
             {
-                r.material.color = LastColor;
+                return FindParentWithTag(hit.transform.gameObject, "RoomObject");
             }
 
-            SelectedObject = null;
+            return hit.transform.gameObject;
+        }
+
+        return null;
+    }
+
+    private void deselect(GameObject obj)
+    {
+        MeshRenderer[] renderers = SelectedObject.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer r in renderers)
+        {
+            r.material.color = LastColor;
+        }
+
+        SelectedObject = null;
+    }
+
+    private void select(GameObject obj)
+    {
+        SelectedObject = obj;
+        MeshRenderer[] renderers = SelectedObject.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer r in renderers)
+        {
+            LastColor = r.material.color;
+            r.material.color = SelectedColor;
         }
     }
 
